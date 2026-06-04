@@ -195,6 +195,8 @@
   .cal-day.selected-start .cal-price, .cal-day.selected-end .cal-price { color: rgba(255,255,255,0.9); opacity: 1; }
   .cal-day.past { color: var(--text-muted); opacity: 0.3; }
   .cal-day.muted { color: var(--text-muted); opacity: 0.4; }
+  .cal-day.inseason { background: rgba(176,112,62,0.06); color: var(--text); }
+  .cal-day.inseason .cal-price { opacity: 0.7; }
   .cal-day.available { background: rgba(176,112,62,0.1); cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .cal-day.available:hover { background: rgba(176,112,62,0.26); }
   .cal-day.available:active { transform: scale(0.92); }
@@ -443,7 +445,7 @@
       <div class="form-group"><label for="partenza">Data partenza</label><input type="date" id="partenza" name="Data partenza"></div>
       <div class="form-group full"><label for="messaggio">Messaggio</label><textarea id="messaggio" name="Messaggio" placeholder="Esigenze particolari, domande…"></textarea></div>
       <button type="submit" class="form-submit">Invia Richiesta <svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg></button>
-      <p class="form-privacy">Inviando il modulo accetti il trattamento dei dati secondo la <a href="#privacy">Privacy Policy</a>.</p>
+      <p class="form-privacy">Inviando il modulo accetti il trattamento dei dati secondo la <a href="privacy.html">Privacy Policy</a>.</p>
     </form>
 
     <div class="booking-msg" id="bookingMsg" role="status" aria-live="polite"></div>
@@ -494,7 +496,7 @@
   <div class="footer-address">Via dell'Istruzione 20 · Spoleto (PG), Umbria</div>
   <div class="footer-bottom">
     <span>© 2026 La Terrazza di Morro</span>
-    <a href="#privacy">Privacy Policy</a>
+    <a href="privacy.html">Privacy Policy</a>
   </div>
 </footer>
 
@@ -651,14 +653,16 @@ function isBookableSat(dStr, todayStr){
   if(dStr>LAST_CHECKIN) return false;          // entro la stagione (check-out <= 5 set 2026)
   return weekFree(dStr);
 }
-/* Prezzo a settimana in base al sabato di check-in (all inclusive) */
-function weeklyPrice(ci){
-  if(ci <= '2026-06-25') return 500;        // inizio stagione
-  if(ci <= '2026-07-12') return 750;        // Festival dei Due Mondi
-  if(ci <= '2026-07-31') return 600;        // alta stagione
-  return 650;                                // agosto → 5 settembre
+/* Prezzo a settimana (all inclusive) in base al periodo della data */
+function periodWeekly(s){
+  if(s <= '2026-06-25') return 500;        // inizio stagione
+  if(s <= '2026-07-12') return 750;        // Festival dei Due Mondi
+  if(s <= '2026-07-31') return 600;        // alta stagione
+  return 650;                               // agosto → 5 settembre
 }
-function nightly(ci){ return Math.round(weeklyPrice(ci)/7); }
+function nightlyFor(s){ return Math.round(periodWeekly(s)/7); }
+function weeklyPrice(ci){ return periodWeekly(ci); }
+function nightly(ci){ return nightlyFor(ci); }
 
 function renderCalendar(){
   const now=new Date();
@@ -679,10 +683,12 @@ function renderMonth(date){
     const dObj=new Date(year,month,d), dStr=toDateStr(dObj);
     const isPast=dObj<today, isToday=dObj.getTime()===today.getTime();
     const bookable=isBookableSat(dStr,todayStr);
+    const inSeason = (!isPast && !isUnavail(dStr) && dStr<=LAST_CHECKOUT); // giorni della stagione
     let cls='cal-day';
     if(isPast) cls+=' past';
     else if(isUnavail(dStr)) cls+=' booked';
     else if(bookable) cls+=' available';
+    else if(inSeason) cls+=' inseason';
     else cls+=' muted';
     if(isToday) cls+=' today';
     if(calSelection.start && calSelection.end){
@@ -690,10 +696,10 @@ function renderMonth(date){
       else if(dStr===calSelection.end) cls+=' selected-end';
       else if(dStr>calSelection.start && dStr<calSelection.end) cls+=' in-range';
     }
-    const cell = bookable
-      ? '<div class="'+cls+'" data-date="'+dStr+'"><span class="cal-num">'+d+'</span><span class="cal-price">'+nightly(dStr)+'€</span></div>'
-      : '<div class="'+cls+'">'+d+'</div>';
-    html+=cell;
+    const showPrice = bookable || inSeason;
+    let inner = '<span class="cal-num">'+d+'</span>';
+    if(showPrice) inner += '<span class="cal-price">'+nightlyFor(dStr)+'€</span>';
+    html += '<div class="'+cls+'"'+(bookable?' data-date="'+dStr+'"':'')+'>'+inner+'</div>';
   }
   return html+'</div></div>';
 }
