@@ -49,7 +49,7 @@
   img { display: block; max-width: 100%; }
 
   /* NAV */
-  nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; padding: 1.4rem 2.5rem; display: flex; justify-content: space-between; align-items: center; transition: all 0.5s cubic-bezier(0.22,1,0.36,1); }
+  nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 200; padding: 1.4rem 2.5rem; display: flex; justify-content: space-between; align-items: center; transition: all 0.5s cubic-bezier(0.22,1,0.36,1); }
   nav.scrolled { background: rgba(244,239,232,0.93); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); padding: 0.9rem 2.5rem; border-bottom: 1px solid rgba(44,40,33,0.06); }
   .nav-logo { text-decoration: none; transition: opacity 0.3s; display: flex; align-items: center; position: relative; }
   .nav-logo:hover { opacity: 0.7; }
@@ -57,6 +57,8 @@
   .logo-dark { position: absolute; top: 0; left: 0; opacity: 0; }
   nav.scrolled .logo-light { opacity: 0; }
   nav.scrolled .logo-dark { opacity: 1; }
+  nav.menu-open .logo-light { opacity: 0; }
+  nav.menu-open .logo-dark { opacity: 1; }
   nav.scrolled .nav-logo { height: 60px; }
   nav.scrolled .logo-img { height: 60px; }
   .nav-links { display: flex; gap: 1.6rem; list-style: none; align-items: center; }
@@ -635,12 +637,16 @@ document.addEventListener('keydown', e => {
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), { passive: true });
 const navToggle = document.getElementById('navToggle'), mobileOverlay = document.getElementById('mobileOverlay');
+const navEl = document.getElementById('nav');
 navToggle.addEventListener('click', () => {
   navToggle.classList.toggle('active'); mobileOverlay.classList.toggle('active');
-  document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+  const open = mobileOverlay.classList.contains('active');
+  if (navEl) navEl.classList.toggle('menu-open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
 });
 document.querySelectorAll('.m-link').forEach(a => a.addEventListener('click', () => {
-  navToggle.classList.remove('active'); mobileOverlay.classList.remove('active'); document.body.style.overflow = '';
+  navToggle.classList.remove('active'); mobileOverlay.classList.remove('active');
+  if (navEl) navEl.classList.remove('menu-open'); document.body.style.overflow = '';
 }));
 
 /* VIDEO — embed YouTube "pulito": parte solo al click, modalità privacy, niente video di altri canali */
