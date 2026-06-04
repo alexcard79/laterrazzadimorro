@@ -164,6 +164,15 @@
   .video-phone video { width: 100%; height: 100%; object-fit: cover; display: block; }
   .video-ph-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; background: linear-gradient(160deg, #5F7256, #2B3026); color: rgba(255,255,255,0.7); font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.05em; padding: 2rem; text-align: center; }
   .video-ph-fallback svg { width: 46px; height: 46px; stroke: rgba(255,255,255,0.6); fill: none; stroke-width: 1.3; }
+  .video-wrap { max-width: 920px; margin: 0 auto; }
+  .video-container { position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 8px; overflow: hidden; box-shadow: 0 24px 70px rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.08); background: #000; }
+  .video-container iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .video-poster { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; cursor: pointer; background-size: cover; background-position: center 42%; display: flex; align-items: center; justify-content: center; }
+  .video-poster::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(40,29,20,0.5), rgba(40,29,20,0.18)); transition: background 0.4s; }
+  .video-poster:hover::after { background: linear-gradient(to top, rgba(40,29,20,0.38), rgba(40,29,20,0.1)); }
+  .video-play { position: relative; z-index: 2; width: 84px; height: 84px; border-radius: 50%; background: rgba(255,255,255,0.94); display: flex; align-items: center; justify-content: center; transition: transform 0.45s cubic-bezier(0.22,1,0.36,1); box-shadow: 0 12px 44px rgba(0,0,0,0.35); }
+  .video-poster:hover .video-play { transform: scale(1.09); }
+  .video-play svg { width: 30px; height: 30px; margin-left: 5px; fill: var(--accent); }
 
   /* PREZZI */
   .prices { background: var(--bg-deep); }
@@ -362,6 +371,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#galleria">Foto</a></li>
+    <li><a href="#video">Video</a></li>
     <li><a href="#prezzi">Tariffe</a></li>
     <li><a href="#dove">Dove siamo</a></li>
     <li><a href="#disponibilita" class="nav-cta">Disponibilità</a></li>
@@ -370,6 +380,7 @@
 </nav>
 <div class="mobile-overlay" id="mobileOverlay">
   <a href="#galleria" class="m-link">Foto</a>
+  <a href="#video" class="m-link">Video</a>
   <a href="#prezzi" class="m-link">Tariffe</a>
   <a href="#dove" class="m-link">Dove siamo</a>
   <a href="#disponibilita" class="m-link">Disponibilità</a>
@@ -378,7 +389,7 @@
 <!-- HERO -->
 <header class="hero">
   <div class="hero-bg-fallback"></div>
-  <img class="hero-bg" src="foto-hero.jpg" alt="" onerror="this.remove()">
+  <img class="hero-bg" src="foto-hero-v3.jpg" alt="" onerror="this.remove()">
   <div class="hero-shade"></div>
   <div class="hero-content">
     <div class="hero-eyebrow reveal visible">Morro · Spoleto · Umbria</div>
@@ -419,10 +430,26 @@
   </div>
 </section>
 
+<!-- VIDEO -->
+<section class="video" id="video">
+  <div class="wrap">
+    <div class="section-label reveal"><span class="section-number">03</span> Video</div>
+    <h2 class="reveal reveal-d1">La casa in <em>movimento</em></h2>
+    <p class="reveal reveal-d1">Un breve giro tra gli ambienti, il terrazzo e la vista sulle colline.</p>
+    <div class="video-wrap reveal reveal-d2">
+      <div class="video-container" id="videoBox">
+        <button class="video-poster" id="videoPlay" type="button" aria-label="Riproduci il video" style="background-image:url('foto4.jpg')">
+          <span class="video-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PREZZI -->
 <section class="prices" id="prezzi">
   <div class="narrow">
-    <div class="section-label reveal"><span class="section-number">03</span> Tariffe</div>
+    <div class="section-label reveal"><span class="section-number">04</span> Tariffe</div>
     <h2 class="reveal reveal-d1">Prezzi <em>all inclusive</em></h2>
     <p class="reveal reveal-d1">Ogni tariffa comprende tutte le utenze e le pulizie finali. Nessun costo nascosto.</p>
     <div class="price-incl reveal reveal-d2"><span>Acqua</span><span>Luce</span><span>Gas</span><span>Utenze</span><span>Pulizie finali</span></div>
@@ -442,7 +469,7 @@
 <!-- DISPONIBILITÀ: CALENDARIO + FORM -->
 <section class="prices" id="disponibilita" style="background:var(--bg)">
   <div class="wrap">
-    <div class="section-label reveal"><span class="section-number">04</span> Disponibilità & prenotazione</div>
+    <div class="section-label reveal"><span class="section-number">05</span> Disponibilità &amp; prenotazione</div>
     <h2 class="reveal reveal-d1">Scegli la <em>settimana</em></h2>
     <p class="reveal reveal-d1" style="max-width:660px">Le prenotazioni sono settimanali, <strong>da sabato a sabato</strong> (7 notti). Tocca un sabato disponibile: la settimana si seleziona da sola e i campi del modulo si compilano. Le date sbarrate sono già occupate.</p>
 
@@ -493,7 +520,7 @@
 <!-- DOVE SIAMO -->
 <section class="location" id="dove">
   <div class="wrap">
-    <div class="section-label reveal"><span class="section-number">05</span> Dove siamo</div>
+    <div class="section-label reveal"><span class="section-number">06</span> Dove siamo</div>
     <h2 class="reveal reveal-d1">Come <em>arrivare</em></h2>
     <div class="location-addr reveal reveal-d1">
       <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
@@ -615,6 +642,17 @@ navToggle.addEventListener('click', () => {
 document.querySelectorAll('.m-link').forEach(a => a.addEventListener('click', () => {
   navToggle.classList.remove('active'); mobileOverlay.classList.remove('active'); document.body.style.overflow = '';
 }));
+
+/* VIDEO — embed YouTube "pulito": parte solo al click, modalità privacy, niente video di altri canali */
+const YT_ID = 'METTI_QUI_ID_VIDEO';   // <-- sostituisci con l'ID del tuo video YouTube (la parte dopo v= o youtu.be/)
+const videoPlay = document.getElementById('videoPlay');
+if (videoPlay) videoPlay.addEventListener('click', () => {
+  if (!YT_ID || YT_ID === 'METTI_QUI_ID_VIDEO') { alert('Video in arrivo: inserisci l’ID del video YouTube nel codice (variabile YT_ID).'); return; }
+  const params = 'autoplay=1&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3&fs=1&color=white';
+  document.getElementById('videoBox').innerHTML =
+    '<iframe src="https://www.youtube-nocookie.com/embed/' + YT_ID + '?' + params + '" title="La Terrazza di Morro" ' +
+    'allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+});
 
 /* REVEAL */
 const obs = new IntersectionObserver((entries) => {
