@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>La Terrazza di Morro — Bilocale con Terrazzo a Spoleto</title>
-<meta name="description" content="Bilocale luminoso di 50 mq a Spoleto con grande terrazzo panoramico, ingresso indipendente e posto auto. Disponibile fino al 31 agosto 2026, tariffe all inclusive.">
+<meta name="description" content="Bilocale luminoso di 50 mq a Spoleto con grande terrazzo panoramico, ingresso indipendente e posto auto. Disponibile fino al 5 settembre 2026, tariffe all inclusive.">
 <meta name="robots" content="index, follow">
 <meta name="keywords" content="casa vacanze spoleto, affitto bilocale spoleto, appartamento terrazzo spoleto, la terrazza di morro, festival dei due mondi alloggio, casa vacanze umbria, appartamento turistico spoleto, affitto settimanale spoleto">
 <meta name="geo.region" content="IT-PG">
@@ -15,11 +15,11 @@
 <link rel="canonical" href="https://www.laterrazzadimorro.it/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="La Terrazza di Morro — Bilocale con Terrazzo a Spoleto">
-<meta name="twitter:description" content="Bilocale luminoso di 50 mq a Spoleto con grande terrazzo panoramico. Tariffe all inclusive, disponibile fino al 31 agosto 2026.">
+<meta name="twitter:description" content="Bilocale luminoso di 50 mq a Spoleto con grande terrazzo panoramico. Tariffe all inclusive, prenotabile fino al 5 settembre 2026.">
 <meta name="twitter:image" content="og-image.jpg">
 <meta property="og:type" content="website">
 <meta property="og:title" content="La Terrazza di Morro — Bilocale con Terrazzo a Spoleto">
-<meta property="og:description" content="Bilocale luminoso di 50 mq a Spoleto con grande terrazzo panoramico. Tariffe all inclusive, disponibile fino al 31 agosto 2026.">
+<meta property="og:description" content="Bilocale luminoso di 50 mq a Spoleto con grande terrazzo panoramico. Tariffe all inclusive, prenotabile fino al 5 settembre 2026.">
 <meta property="og:image" content="og-image.jpg">
 <meta property="og:locale" content="it_IT">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -52,12 +52,12 @@
   nav.scrolled { background: rgba(244,239,232,0.93); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); padding: 0.9rem 2.5rem; border-bottom: 1px solid rgba(44,40,33,0.06); }
   .nav-logo { text-decoration: none; transition: opacity 0.3s; display: flex; align-items: center; position: relative; }
   .nav-logo:hover { opacity: 0.7; }
-  .logo-img { height: 52px; width: auto; display: block; transition: opacity 0.5s cubic-bezier(0.22,1,0.36,1); }
+  .logo-img { height: 72px; width: auto; display: block; transition: opacity 0.5s cubic-bezier(0.22,1,0.36,1); }
   .logo-dark { position: absolute; top: 0; left: 0; opacity: 0; }
   nav.scrolled .logo-light { opacity: 0; }
   nav.scrolled .logo-dark { opacity: 1; }
-  nav.scrolled .nav-logo { height: 44px; }
-  nav.scrolled .logo-img { height: 44px; }
+  nav.scrolled .nav-logo { height: 60px; }
+  nav.scrolled .logo-img { height: 60px; }
   .nav-links { display: flex; gap: 1.6rem; list-style: none; align-items: center; }
   .nav-links a { font-family: var(--sans); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(253,251,248,0.78); text-decoration: none; transition: color 0.4s; }
   .nav-links a:hover { color: var(--white); }
@@ -190,8 +190,11 @@
   .cal-month-title { font-family: var(--serif); font-size: 1.05rem; color: var(--text); text-align: center; margin-bottom: 1rem; }
   .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
   .cal-day-name { font-family: var(--sans); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); text-align: center; padding: 0.5rem 0; font-weight: 500; }
-  .cal-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-size: 0.82rem; color: var(--text); border-radius: 6px; transition: all 0.2s; }
+  .cal-day { aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; font-family: var(--sans); font-size: 0.82rem; color: var(--text); border-radius: 6px; transition: all 0.2s; line-height: 1.05; }
+  .cal-price { font-size: 0.56rem; font-weight: 500; color: var(--sage-deep); opacity: 0.85; }
+  .cal-day.selected-start .cal-price, .cal-day.selected-end .cal-price { color: rgba(255,255,255,0.9); opacity: 1; }
   .cal-day.past { color: var(--text-muted); opacity: 0.3; }
+  .cal-day.muted { color: var(--text-muted); opacity: 0.4; }
   .cal-day.available { background: rgba(176,112,62,0.1); cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .cal-day.available:hover { background: rgba(176,112,62,0.26); }
   .cal-day.available:active { transform: scale(0.92); }
@@ -224,6 +227,10 @@
   .form-privacy { grid-column: 1 / -1; font-family: var(--sans); font-size: 0.72rem; color: var(--text-muted); line-height: 1.5; }
   .form-privacy a { color: var(--accent); }
   .form-alt { text-align: center; margin-top: 2rem; font-family: var(--sans); font-size: 0.85rem; color: var(--text-light); }
+  .booking-msg { max-width: 700px; margin: 1.3rem auto 0; padding: 0; font-family: var(--sans); font-size: 0.9rem; text-align: center; border-radius: 6px; opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.4s, max-height 0.4s, padding 0.4s; }
+  .booking-msg.show { opacity: 1; max-height: 140px; padding: 1rem 1.3rem; }
+  .booking-msg.ok { background: rgba(123,150,90,0.16); color: #4d6a2e; border: 1px solid rgba(123,150,90,0.4); }
+  .booking-msg.err { background: rgba(194,106,61,0.14); color: #9a4a22; border: 1px solid rgba(194,106,61,0.4); }
   .form-alt a { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--sage-deep); font-weight: 400; text-decoration: none; border: 1px solid var(--accent); padding: 0.5rem 1.2rem; border-radius: 20px; margin-left: 0.4rem; transition: all 0.3s; }
   .form-alt a:hover { background: var(--accent); color: var(--white); }
   .form-alt svg { width: 16px; height: 16px; fill: currentColor; }
@@ -234,13 +241,25 @@
   .wa-float svg { width: 30px; height: 30px; fill: #fff; }
   @keyframes waPulse { 0%,100% { box-shadow: 0 8px 30px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.4); } 50% { box-shadow: 0 8px 30px rgba(37,211,102,0.4), 0 0 0 13px rgba(37,211,102,0); } }
 
+  /* DOVE SIAMO / MAPPA */
+  .location { background: var(--white); }
+  .location-addr { display: flex; align-items: center; gap: 0.7rem; font-family: var(--serif); font-size: 1.3rem; color: var(--text); margin-top: 0.5rem; }
+  .location-addr svg { width: 24px; height: 24px; stroke: var(--accent); fill: none; stroke-width: 1.5; flex-shrink: 0; }
+  .map-wrap { margin-top: 2rem; width: 100%; height: 420px; overflow: hidden; border-radius: 4px; box-shadow: 0 16px 50px rgba(51,39,29,0.12); }
+  .map-wrap iframe { width: 100%; height: 100%; border: 0; filter: grayscale(0.15) sepia(0.06); }
+  .map-cta { display: inline-flex; align-items: center; gap: 0.6rem; margin-top: 1.6rem; font-family: var(--sans); font-size: 0.76rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); background: var(--accent); padding: 0.9rem 1.8rem; border-radius: 4px; text-decoration: none; transition: all 0.4s cubic-bezier(0.22,1,0.36,1); }
+  .map-cta:hover { background: var(--sage-deep); transform: translateY(-2px); }
+  .map-cta svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.6; }
+
   /* FOOTER */
   footer { background: var(--bg-dark); color: rgba(255,255,255,0.5); padding: 3.5rem 2.5rem 2rem; text-align: center; }
-  .footer-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 300; color: rgba(255,255,255,0.85); margin-bottom: 0.6rem; }
-  .footer-avail { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.6rem; }
-  .footer-contacts { display: flex; justify-content: center; gap: 1.8rem; flex-wrap: wrap; margin-bottom: 1.8rem; }
-  .footer-contacts a { font-size: 0.85rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s; }
-  .footer-contacts a:hover { color: rgba(255,255,255,0.9); }
+  .footer-logo { height: 132px; width: auto; display: block; margin: 0 auto 1.4rem; opacity: 0.92; }
+  .footer-avail { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.8rem; }
+  .footer-contacts { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
+  .footer-wa { display: inline-flex; align-items: center; gap: 0.55rem; font-size: 0.88rem; color: rgba(255,255,255,0.75); text-decoration: none; border: 1px solid rgba(255,255,255,0.18); padding: 0.55rem 1.1rem; border-radius: 24px; transition: all 0.3s; }
+  .footer-wa:hover { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.35); }
+  .footer-wa svg { width: 17px; height: 17px; fill: #25D366; flex-shrink: 0; }
+  .footer-address { font-family: var(--sans); font-size: 0.85rem; color: rgba(255,255,255,0.45); margin-bottom: 1.8rem; }
   .footer-bottom { padding-top: 1.6rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.7rem; color: rgba(255,255,255,0.28); display: flex; justify-content: center; gap: 1.4rem; flex-wrap: wrap; }
   .footer-bottom a { color: rgba(255,255,255,0.32); text-decoration: none; }
   .footer-bottom a:hover { color: rgba(255,255,255,0.6); }
@@ -313,6 +332,7 @@
   <ul class="nav-links">
     <li><a href="#galleria">Foto</a></li>
     <li><a href="#prezzi">Tariffe</a></li>
+    <li><a href="#dove">Dove siamo</a></li>
     <li><a href="#disponibilita" class="nav-cta">Disponibilità</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -320,6 +340,7 @@
 <div class="mobile-overlay" id="mobileOverlay">
   <a href="#galleria" class="m-link">Foto</a>
   <a href="#prezzi" class="m-link">Tariffe</a>
+  <a href="#dove" class="m-link">Dove siamo</a>
   <a href="#disponibilita" class="m-link">Disponibilità</a>
 </div>
 
@@ -331,7 +352,7 @@
   <div class="hero-content">
     <div class="hero-eyebrow reveal visible">Morro · Spoleto · Umbria</div>
     <h1 class="reveal visible reveal-d1">Bilocale con <em>terrazzo</em><br>a Spoleto</h1>
-    <p class="hero-sub reveal visible reveal-d2">Disponibile da subito fino al 31 agosto 2026</p>
+    <p class="hero-sub reveal visible reveal-d2">Disponibile da subito fino al 5 settembre 2026</p>
     <a href="#disponibilita" class="hero-btn reveal visible reveal-d2">
       Verifica Disponibilità
       <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
@@ -380,7 +401,7 @@
       <div class="price-row"><div class="price-period">13 – 31 luglio <small>Alta stagione</small></div><div class="price-tag">600 € <small>/ sett.</small></div></div>
       <div class="price-row"><div class="price-period">Agosto <small>1 – 31 agosto</small></div><div class="price-tag">650 € <small>/ sett.</small></div></div>
     </div>
-    <div class="price-footer reveal reveal-d2"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>Soggiorno minimo: 7 notti</div>
+    <div class="price-footer reveal reveal-d2"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>Soggiorni settimanali sabato → sabato · check-in 15:00, check-out 10:00</div>
   </div>
 </section>
 
@@ -388,8 +409,8 @@
 <section class="prices" id="disponibilita" style="background:var(--bg)">
   <div class="wrap">
     <div class="section-label reveal"><span class="section-number">04</span> Disponibilità & prenotazione</div>
-    <h2 class="reveal reveal-d1">Scegli le <em>date</em></h2>
-    <p class="reveal reveal-d1" style="max-width:640px">Seleziona arrivo e partenza sul calendario: i campi del modulo si compilano da soli. Le date sbarrate sono già occupate.</p>
+    <h2 class="reveal reveal-d1">Scegli la <em>settimana</em></h2>
+    <p class="reveal reveal-d1" style="max-width:660px">Le prenotazioni sono settimanali, <strong>da sabato a sabato</strong> (7 notti). Tocca un sabato disponibile: la settimana si seleziona da sola e i campi del modulo si compilano. Le date sbarrate sono già occupate.</p>
 
     <div class="cal-block reveal reveal-d2">
       <div class="cal-header">
@@ -399,12 +420,12 @@
       </div>
       <div class="cal-grid-wrap" id="calGrids"></div>
       <div class="cal-legend">
-        <div class="cal-legend-item"><div class="cal-legend-dot avail"></div><span>Disponibile</span></div>
-        <div class="cal-legend-item"><div class="cal-legend-dot sel"></div><span>Selezionato</span></div>
+        <div class="cal-legend-item"><div class="cal-legend-dot avail"></div><span>Sabato prenotabile</span></div>
+        <div class="cal-legend-item"><div class="cal-legend-dot sel"></div><span>Settimana scelta</span></div>
         <div class="cal-legend-item"><div class="cal-legend-dot booked"></div><span>Occupato</span></div>
       </div>
-      <div class="cal-selection-info" id="calSelectionInfo">Seleziona la data di arrivo</div>
-      <div class="cal-note">Soggiorno minimo 7 notti · confermeremo la disponibilità alla tua richiesta.</div>
+      <div class="cal-selection-info" id="calSelectionInfo">Tocca un sabato disponibile per prenotare la settimana</div>
+      <div class="cal-note">Soggiorno settimanale sabato → sabato · check-in dalle 15:00, check-out entro le 10:00 · prenotabile fino al 5 settembre 2026.</div>
     </div>
 
     <form class="form reveal reveal-d2" id="bookingForm" action="https://formsubmit.co/info@casavacanzespoleto.it" method="POST">
@@ -413,6 +434,7 @@
       <input type="hidden" name="_template" value="table">
       <input type="text" name="_honey" style="display:none">
       <input type="hidden" name="Notti" id="campoNotti">
+      <input type="hidden" name="Prezzo settimana" id="campoPrezzo">
       <div class="form-group"><label for="nome">Nome</label><input type="text" id="nome" name="Nome" required placeholder="Il tuo nome"></div>
       <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="Email" required placeholder="nome@email.it"></div>
       <div class="form-group"><label for="telefono">Telefono</label><input type="tel" id="telefono" name="Telefono" placeholder="+39 …"></div>
@@ -424,26 +446,52 @@
       <p class="form-privacy">Inviando il modulo accetti il trattamento dei dati secondo la <a href="#privacy">Privacy Policy</a>.</p>
     </form>
 
+    <div class="booking-msg" id="bookingMsg" role="status" aria-live="polite"></div>
+
     <div class="form-alt reveal">
       Preferisci scrivere subito?
-      <a id="waAside" href="https://wa.me/393XXXXXXXXX" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.27-.1-.47-.15-.66.15-.2.3-.76.94-.93 1.13-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5h-.56c-.2 0-.5.07-.77.37-.26.3-1 1-1 2.43 0 1.44 1.04 2.82 1.18 3.02.15.2 2.05 3.13 4.96 4.39.69.3 1.23.48 1.65.61.7.22 1.33.19 1.83.12.56-.08 1.7-.7 1.95-1.36.24-.67.24-1.24.17-1.36-.07-.12-.27-.2-.56-.34zM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2z"/></svg>
-        WhatsApp
-      </a>
+      <a id="waAside" href="https://wa.me/393497711476" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.27-.1-.47-.15-.66.15-.2.3-.76.94-.93 1.13-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5h-.56c-.2 0-.5.07-.77.37-.26.3-1 1-1 2.43 0 1.44 1.04 2.82 1.18 3.02.15.2 2.05 3.13 4.96 4.39.69.3 1.23.48 1.65.61.7.22 1.33.19 1.83.12.56-.08 1.7-.7 1.95-1.36.24-.67.24-1.24.17-1.36-.07-.12-.27-.2-.56-.34zM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2z"/></svg> Alessandro</a>
+      <a id="waAside2" href="https://wa.me/393358216700" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.27-.1-.47-.15-.66.15-.2.3-.76.94-.93 1.13-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5h-.56c-.2 0-.5.07-.77.37-.26.3-1 1-1 2.43 0 1.44 1.04 2.82 1.18 3.02.15.2 2.05 3.13 4.96 4.39.69.3 1.23.48 1.65.61.7.22 1.33.19 1.83.12.56-.08 1.7-.7 1.95-1.36.24-.67.24-1.24.17-1.36-.07-.12-.27-.2-.56-.34zM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2z"/></svg> Roberto</a>
     </div>
+  </div>
+</section>
+
+<!-- DOVE SIAMO -->
+<section class="location" id="dove">
+  <div class="wrap">
+    <div class="section-label reveal"><span class="section-number">05</span> Dove siamo</div>
+    <h2 class="reveal reveal-d1">Come <em>arrivare</em></h2>
+    <div class="location-addr reveal reveal-d1">
+      <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      Via dell'Istruzione 20 · Spoleto (PG), Umbria
+    </div>
+    <div class="map-wrap reveal reveal-d2">
+      <iframe
+        src="https://www.google.com/maps?q=Via%20dell'Istruzione%2020,%20Spoleto%20PG&z=15&output=embed"
+        title="Mappa — Via dell'Istruzione 20, Spoleto" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <a class="map-cta reveal reveal-d2" href="https://www.google.com/maps/dir/?api=1&destination=Via%20dell'Istruzione%2020%2C%20Spoleto%20PG" target="_blank" rel="noopener">
+      Apri indicazioni stradali
+      <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+    </a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <img src="logo-light.png" alt="La Terrazza di Morro" style="height:84px;width:auto;display:block;margin:0 auto 1rem;opacity:0.9">
-  <div class="footer-name">La Terrazza di Morro</div>
-  <div class="footer-avail">Disponibile fino al 31 agosto 2026 · Spoleto (PG), Umbria</div>
+  <img src="logo-light.png" alt="La Terrazza di Morro" class="footer-logo">
+  <div class="footer-avail">Disponibile fino al 5 settembre 2026 · soggiorni settimanali sabato → sabato</div>
   <div class="footer-contacts">
-    <a href="https://wa.me/393XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
-    <a href="tel:+393XXXXXXXXX">+39 3XX XXX XXXX</a>
-    <a href="mailto:info@casavacanzespoleto.it">info@casavacanzespoleto.it</a>
+    <a href="https://wa.me/393497711476" target="_blank" rel="noopener" class="footer-wa">
+      <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.27-.1-.47-.15-.66.15-.2.3-.76.94-.93 1.13-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5h-.56c-.2 0-.5.07-.77.37-.26.3-1 1-1 2.43 0 1.44 1.04 2.82 1.18 3.02.15.2 2.05 3.13 4.96 4.39.69.3 1.23.48 1.65.61.7.22 1.33.19 1.83.12.56-.08 1.7-.7 1.95-1.36.24-.67.24-1.24.17-1.36-.07-.12-.27-.2-.56-.34zM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2z"/></svg>
+      Alessandro · 349 771 1476
+    </a>
+    <a href="https://wa.me/393358216700" target="_blank" rel="noopener" class="footer-wa">
+      <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.27-.1-.47-.15-.66.15-.2.3-.76.94-.93 1.13-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5h-.56c-.2 0-.5.07-.77.37-.26.3-1 1-1 2.43 0 1.44 1.04 2.82 1.18 3.02.15.2 2.05 3.13 4.96 4.39.69.3 1.23.48 1.65.61.7.22 1.33.19 1.83.12.56-.08 1.7-.7 1.95-1.36.24-.67.24-1.24.17-1.36-.07-.12-.27-.2-.56-.34zM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2z"/></svg>
+      Roberto · 335 821 6700
+    </a>
   </div>
+  <div class="footer-address">Via dell'Istruzione 20 · Spoleto (PG), Umbria</div>
   <div class="footer-bottom">
     <span>© 2026 La Terrazza di Morro</span>
     <a href="#privacy">Privacy Policy</a>
@@ -451,7 +499,7 @@
 </footer>
 
 <!-- WHATSAPP FLOAT -->
-<a id="waFloat" href="https://wa.me/393XXXXXXXXX?text=Ciao!%20Vorrei%20informazioni%20sulla%20disponibilit%C3%A0%20de%20La%20Terrazza%20di%20Morro." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+<a id="waFloat" href="https://wa.me/393497711476?text=Ciao!%20Vorrei%20informazioni%20sulla%20disponibilit%C3%A0%20de%20La%20Terrazza%20di%20Morro." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.7-.85-2-.95-.27-.1-.47-.15-.66.15-.2.3-.76.94-.93 1.13-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5h-.56c-.2 0-.5.07-.77.37-.26.3-1 1-1 2.43 0 1.44 1.04 2.82 1.18 3.02.15.2 2.05 3.13 4.96 4.39.69.3 1.23.48 1.65.61.7.22 1.33.19 1.83.12.56-.08 1.7-.7 1.95-1.36.24-.67.24-1.24.17-1.36-.07-.12-.27-.2-.56-.34zM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2z"/></svg>
 </a>
 
@@ -470,10 +518,15 @@
 <script>
 /* GALLERIA: sostituisci src con le tue foto (foto1.jpg…). ph = riserva. */
 const gallery = [
-  { src: 'foto1.jpg', caption: 'Soggiorno',              cls: 'wide', ph: 'linear-gradient(135deg,#C99263,#8A5734)' },
+  { src: 'foto7.jpg', caption: 'Soggiorno e cucina',     cls: 'wide', ph: 'linear-gradient(135deg,#C99263,#8A5734)' },
+  { src: 'foto6.jpg', caption: 'Cucina e zona pranzo',   cls: '',     ph: 'linear-gradient(135deg,#E9DECC,#DDD0BC)' },
+  { src: 'foto8.jpg', caption: 'Camera matrimoniale',    cls: '',     ph: 'linear-gradient(135deg,#DDD0BC,#C26A3D)' },
   { src: 'foto2.jpg', caption: 'Camera matrimoniale',    cls: '',     ph: 'linear-gradient(135deg,#DDD0BC,#C26A3D)' },
   { src: 'foto3.jpg', caption: 'Terrazzo con pergolato', cls: '',     ph: 'linear-gradient(160deg,#C99263,#5B3E22)' },
-  { src: 'foto4.jpg', caption: 'Terrazzo panoramico',    cls: '',     ph: 'linear-gradient(135deg,#E9DECC,#DDD0BC)' },
+  { src: 'foto4.jpg', caption: 'Terrazzo panoramico',    cls: 'wide', ph: 'linear-gradient(135deg,#E9DECC,#DDD0BC)' },
+  { src: 'foto10.jpg',caption: 'Terrazzo e giardino',    cls: '',     ph: 'linear-gradient(135deg,#C26A3D,#C99263)' },
+  { src: 'foto9.jpg', caption: 'Balcone',                cls: '',     ph: 'linear-gradient(135deg,#7B8B6F,#D9CDB8)' },
+  { src: 'foto1.jpg', caption: 'Soggiorno',              cls: '',     ph: 'linear-gradient(135deg,#C99263,#8A5734)' },
   { src: 'foto5.jpg', caption: 'Ingresso e corridoio',   cls: '',     ph: 'linear-gradient(135deg,#C26A3D,#C99263)' }
 ];
 const grid = document.getElementById('galleryGrid');
@@ -535,26 +588,44 @@ const obs = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal:not(.visible)').forEach(el => obs.observe(el));
 
-/* ═══ CALENDARIO (foglio esterno opzionale) ═══
-   Date OCCUPATE: Google Sheet con 2 colonne -> Check-in | Check-out (gg/mm/aaaa).
-   File > Condividi > Pubblica sul web > CSV, copia il link e incollalo qui sotto.
-   Vuoto = tutte disponibili. */
-const SHEET_URL = '';
+/* ═══ CALENDARIO — PRENOTAZIONE LIVE ═══
+   Per far sì che la prenotazione del cliente blocchi SUBITO le date per tutti
+   (anti-sovrapposizione), serve un Google Apps Script collegato a un Foglio Google.
+   Istruzioni complete e codice nel README. Incolla qui l'URL del Web App:
+*/
+const APPS_SCRIPT_URL = '';   // <- URL del Web App di Google Apps Script (scrive + legge le prenotazioni)
+const SHEET_URL = '';         // (alternativa SOLA LETTURA) CSV pubblicato del foglio, se non usi l'Apps Script
 
 const MIN_NIGHTS = 7;
 const calMonths = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
 const calDays = ['Lun','Mar','Mer','Gio','Ven','Sab','Dom'];
-let calOffset = 0, bookedDates = new Set(), calSelection = { start: null, end: null };
+let calOffset = 0, bookedDates = new Set(), calSelection = { start: null, end: null }, localBlocks = new Set();
 
 function toDateStr(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
-function parseDateStr(s){ if(!s) return null; if(s.includes('/')){const p=s.split('/'); if(p.length===3) return new Date(p[2],p[1]-1,p[0]);} const d=new Date(s); return isNaN(d)?null:d; }
+function parseDateStr(s){ if(!s) return null; s=(''+s).trim(); if(s.includes('/')){const p=s.split('/'); if(p.length===3) return new Date(p[2],p[1]-1,p[0]);} const d=new Date(s); return isNaN(d)?null:d; }
 function formatLocal(s){ const d=new Date(s+'T00:00:00'); return d.getDate()+' '+calMonths[d.getMonth()].toLowerCase(); }
 function itDate(s){ const d=new Date(s+'T00:00:00'); return d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear(); }
 
+function rangesToSet(rows){
+  const set=new Set();
+  (rows||[]).forEach(b=>{ const ci=parseDateStr(b.checkin), co=parseDateStr(b.checkout);
+    if(ci&&co){ let d=new Date(ci); while(d<co){ set.add(toDateStr(d)); d.setDate(d.getDate()+1); } } });
+  return set;
+}
 async function loadBookedDates(){
-  if(!SHEET_URL) return;
-  try { const r=await fetch(SHEET_URL); bookedDates=parseCSVDates(await r.text()); renderCalendar(); }
-  catch(e){ console.log('Calendario: dati non disponibili'); }
+  try {
+    if(APPS_SCRIPT_URL){
+      const r=await fetch(APPS_SCRIPT_URL+'?action=list&t='+Date.now());
+      const data=await r.json();
+      bookedDates=rangesToSet(data.bookings);
+      localBlocks.forEach(d=>bookedDates.add(d));   // mantieni le pre-prenotazioni appena fatte
+      renderCalendar();
+    } else if(SHEET_URL){
+      const r=await fetch(SHEET_URL); bookedDates=parseCSVDates(await r.text());
+      localBlocks.forEach(d=>bookedDates.add(d));
+      renderCalendar();
+    }
+  } catch(e){ console.log('Calendario: dati non disponibili', e); }
 }
 function parseCSVDates(csv){
   const lines=csv.trim().split('\n'), dates=new Set();
@@ -563,6 +634,32 @@ function parseCSVDates(csv){
     if(ci&&co){ let d=new Date(ci); while(d<co){ dates.add(toDateStr(d)); d.setDate(d.getDate()+1); } } } }
   return dates;
 }
+/* ── Regole di stagione: solo SABATO → SABATO (7 notti) ── */
+const STAY_NIGHTS = 7, CHECKIN_DOW = 6; // 6 = sabato
+const LAST_CHECKIN  = '2026-08-29';     // ultimo sabato di check-in (check-out 5 set 2026)
+const LAST_CHECKOUT = '2026-09-05';
+const OFF_START = '2026-09-06', OFF_END = '2027-06-11'; // periodo mostrato come occupato
+function addDaysStr(s,n){ const d=new Date(s+'T00:00:00'); d.setDate(d.getDate()+n); return toDateStr(d); }
+function isOffSeason(s){ return s>=OFF_START && s<=OFF_END; }
+function isUnavail(s){ return bookedDates.has(s) || isOffSeason(s); }
+function nextSat(s){ return addDaysStr(s, STAY_NIGHTS); }
+function weekFree(sat){ for(let i=0;i<STAY_NIGHTS;i++){ if(isUnavail(addDaysStr(sat,i))) return false; } return true; }
+function isBookableSat(dStr, todayStr){
+  const d=new Date(dStr+'T00:00:00');
+  if(d.getDay()!==CHECKIN_DOW) return false;   // solo sabato
+  if(dStr<todayStr) return false;              // non nel passato
+  if(dStr>LAST_CHECKIN) return false;          // entro la stagione (check-out <= 5 set 2026)
+  return weekFree(dStr);
+}
+/* Prezzo a settimana in base al sabato di check-in (all inclusive) */
+function weeklyPrice(ci){
+  if(ci <= '2026-06-25') return 500;        // inizio stagione
+  if(ci <= '2026-07-12') return 750;        // Festival dei Due Mondi
+  if(ci <= '2026-07-31') return 600;        // alta stagione
+  return 650;                                // agosto → 5 settembre
+}
+function nightly(ci){ return Math.round(weeklyPrice(ci)/7); }
+
 function renderCalendar(){
   const now=new Date();
   const m1=new Date(now.getFullYear(),now.getMonth()+calOffset,1), m2=new Date(now.getFullYear(),now.getMonth()+calOffset+1,1);
@@ -572,6 +669,7 @@ function renderCalendar(){
 }
 function renderMonth(date){
   const year=date.getFullYear(),month=date.getMonth(),today=new Date(); today.setHours(0,0,0,0);
+  const todayStr=toDateStr(today);
   let html='<div class="cal-month"><div class="cal-month-title">'+calMonths[month]+' '+year+'</div><div class="cal-grid">';
   calDays.forEach(d=>html+='<div class="cal-day-name">'+d+'</div>');
   let fd=new Date(year,month,1).getDay(); fd=fd===0?6:fd-1;
@@ -579,42 +677,45 @@ function renderMonth(date){
   const dim=new Date(year,month+1,0).getDate();
   for(let d=1;d<=dim;d++){
     const dObj=new Date(year,month,d), dStr=toDateStr(dObj);
-    const isPast=dObj<today, isBooked=bookedDates.has(dStr), isToday=dObj.getTime()===today.getTime();
+    const isPast=dObj<today, isToday=dObj.getTime()===today.getTime();
+    const bookable=isBookableSat(dStr,todayStr);
     let cls='cal-day';
-    if(isPast) cls+=' past'; else if(isBooked) cls+=' booked'; else cls+=' available';
+    if(isPast) cls+=' past';
+    else if(isUnavail(dStr)) cls+=' booked';
+    else if(bookable) cls+=' available';
+    else cls+=' muted';
     if(isToday) cls+=' today';
-    if(calSelection.start===dStr) cls+=' selected-start';
-    else if(calSelection.end===dStr) cls+=' selected-end';
-    else if(calSelection.start&&calSelection.end&&dStr>calSelection.start&&dStr<calSelection.end) cls+=' in-range';
-    const clk=!isPast&&!isBooked;
-    html+='<div class="'+cls+'"'+(clk?' data-date="'+dStr+'"':'')+'>'+d+'</div>';
+    if(calSelection.start && calSelection.end){
+      if(dStr===calSelection.start) cls+=' selected-start';
+      else if(dStr===calSelection.end) cls+=' selected-end';
+      else if(dStr>calSelection.start && dStr<calSelection.end) cls+=' in-range';
+    }
+    const cell = bookable
+      ? '<div class="'+cls+'" data-date="'+dStr+'"><span class="cal-num">'+d+'</span><span class="cal-price">'+nightly(dStr)+'€</span></div>'
+      : '<div class="'+cls+'">'+d+'</div>';
+    html+=cell;
   }
   return html+'</div></div>';
 }
 function onDayClick(dStr){
-  if(bookedDates.has(dStr)) return;
-  const d=new Date(dStr+'T00:00:00'), today=new Date(); today.setHours(0,0,0,0);
-  if(d<today) return;
-  if(!calSelection.start||calSelection.end){ calSelection={start:dStr,end:null}; }
-  else if(dStr<=calSelection.start){ calSelection={start:dStr,end:null}; }
-  else { let hb=false, ch=new Date(calSelection.start+'T00:00:00'), ed=new Date(dStr+'T00:00:00');
-    while(ch<ed){ if(bookedDates.has(toDateStr(ch))){hb=true;break;} ch.setDate(ch.getDate()+1); }
-    calSelection=hb?{start:dStr,end:null}:{start:calSelection.start,end:dStr}; }
+  const today=new Date(); today.setHours(0,0,0,0);
+  if(!isBookableSat(dStr, toDateStr(today))) return;
+  calSelection = { start: dStr, end: nextSat(dStr) };   // settimana completa sabato → sabato
   renderCalendar(); updateSelectionInfo();
 }
 function updateSelectionInfo(){
   const info=document.getElementById('calSelectionInfo');
   const arrivo=document.getElementById('arrivo'), partenza=document.getElementById('partenza'), notti=document.getElementById('campoNotti');
-  const waFloat=document.getElementById('waFloat'), waAside=document.getElementById('waAside');
-  if(!calSelection.start){ info.textContent='Seleziona la data di arrivo'; arrivo.value=''; partenza.value=''; notti.value=''; return; }
-  if(!calSelection.end){ info.textContent='Ora seleziona la data di partenza'; arrivo.value=calSelection.start; partenza.value=''; notti.value=''; return; }
+  const waFloat=document.getElementById('waFloat'), waAside=document.getElementById('waAside'), waAside2=document.getElementById('waAside2');
+  if(!calSelection.start || !calSelection.end){ info.textContent='Tocca un sabato disponibile per prenotare la settimana'; arrivo.value=''; partenza.value=''; notti.value=''; return; }
   const d1=new Date(calSelection.start+'T00:00:00'), d2=new Date(calSelection.end+'T00:00:00'), nights=Math.round((d2-d1)/86400000);
-  const warn=nights<MIN_NIGHTS?' <span style="color:var(--terracotta)">(minimo '+MIN_NIGHTS+' notti)</span>':'';
-  info.innerHTML='<strong>'+nights+' notti</strong> · '+formatLocal(calSelection.start)+' → '+formatLocal(calSelection.end)+warn+'<span class="cal-reset" onclick="resetSelection()">cambia</span>';
+  const week=weeklyPrice(calSelection.start), pn=nightly(calSelection.start);
+  info.innerHTML='<strong>Settimana '+formatLocal(calSelection.start)+' → '+formatLocal(calSelection.end)+'</strong> · 7 notti · <strong>'+week+' €</strong> <span style="opacity:0.7">(≈ '+pn+' €/notte, all inclusive)</span><span class="cal-reset" onclick="resetSelection()">cambia</span>';
   arrivo.value=calSelection.start; partenza.value=calSelection.end; notti.value=nights;
-  const msg=encodeURIComponent('Ciao! Vorrei verificare la disponibilità de La Terrazza di Morro dal '+itDate(calSelection.start)+' al '+itDate(calSelection.end)+' ('+nights+' notti).');
-  const url='https://wa.me/393XXXXXXXXX?text='+msg;
-  if(waFloat) waFloat.href=url; if(waAside) waAside.href=url;
+  const prezzoEl=document.getElementById('campoPrezzo'); if(prezzoEl) prezzoEl.value=week+' € (≈'+pn+' €/notte)';
+  const msg=encodeURIComponent('Ciao! Vorrei prenotare a La Terrazza di Morro la settimana dal '+itDate(calSelection.start)+' (check-in 15:00) al '+itDate(calSelection.end)+' (check-out 10:00) — '+week+' € all inclusive.');
+  const urlAL='https://wa.me/393497711476?text='+msg, urlRO='https://wa.me/393358216700?text='+msg;
+  if(waFloat) waFloat.href=urlAL; if(waAside) waAside.href=urlAL; if(waAside2) waAside2.href=urlRO;
 }
 function resetSelection(){ calSelection={start:null,end:null}; renderCalendar(); updateSelectionInfo(); }
 document.getElementById('calGrids').addEventListener('click', e => { const day=e.target.closest('[data-date]'); if(day) onDayClick(day.getAttribute('data-date')); });
@@ -622,6 +723,55 @@ document.getElementById('calPrev').addEventListener('click', () => { calOffset=M
 document.getElementById('calNext').addEventListener('click', () => { calOffset++; renderCalendar(); });
 renderCalendar(); loadBookedDates();
 document.getElementById('arrivo').addEventListener('change', () => { document.getElementById('partenza').min=document.getElementById('arrivo').value; });
+
+/* ═══ INVIO PRENOTAZIONE LIVE ═══ */
+function showBookingMsg(ok, text){
+  const el=document.getElementById('bookingMsg');
+  el.textContent=text; el.className='booking-msg '+(ok?'ok':'err')+' show';
+  setTimeout(()=>{ if(ok) el.classList.remove('show'); }, 9000);
+}
+(function(){
+  const form=document.getElementById('bookingForm');
+  if(!form) return;
+  form.addEventListener('submit', async (e)=>{
+    // Se l'Apps Script non è configurato, lascia il comportamento email (FormSubmit)
+    if(!APPS_SCRIPT_URL) return;
+    e.preventDefault();
+    if(!calSelection.start || !calSelection.end){ showBookingMsg(false,'Seleziona arrivo e partenza sul calendario prima di inviare.'); document.getElementById('disponibilita').scrollIntoView({behavior:'smooth'}); return; }
+    const d1=new Date(calSelection.start+'T00:00:00'), d2=new Date(calSelection.end+'T00:00:00');
+    const nights=Math.round((d2-d1)/86400000);
+    if(nights<MIN_NIGHTS){ showBookingMsg(false,'Il soggiorno minimo è di '+MIN_NIGHTS+' notti.'); return; }
+    const btn=form.querySelector('.form-submit'); const old=btn.innerHTML;
+    btn.disabled=true; btn.textContent='Invio in corso…';
+    try{
+      const body=new URLSearchParams({
+        action:'book',
+        nome:form.Nome.value, email:form.Email.value, telefono:form.Telefono.value||'',
+        ospiti:form.Ospiti.value||'', checkin:calSelection.start, checkout:calSelection.end,
+        notti:String(nights), prezzo:String(weeklyPrice(calSelection.start)), messaggio:form.Messaggio.value||''
+      });
+      const r=await fetch(APPS_SCRIPT_URL,{ method:'POST', body });
+      const res=await r.json();
+      if(res.ok){
+        // blocca SUBITO le date in locale (persistono anche dopo il refresh dal server)
+        let d=new Date(d1); while(d<d2){ const k=toDateStr(d); bookedDates.add(k); localBlocks.add(k); d.setDate(d.getDate()+1); }
+        resetSelection(); renderCalendar();
+        showBookingMsg(true,'Pre-prenotazione registrata! Le date risultano ora occupate. Ti contatteremo per la conferma.');
+        form.reset();
+        loadBookedDates(); // riallinea con il server
+      } else if(res.error==='overlap'){
+        showBookingMsg(false,'Spiacenti, quelle date sono appena state prenotate. Scegli un altro periodo.');
+        resetSelection(); loadBookedDates();
+      } else {
+        showBookingMsg(false,'Si è verificato un errore. Riprova o scrivici su WhatsApp.');
+      }
+    } catch(err){
+      showBookingMsg(false,'Errore di rete. Riprova tra poco o scrivici su WhatsApp.');
+    } finally {
+      btn.disabled=false; btn.innerHTML=old;
+    }
+  });
+})();
 </script>
 </body>
 </html>

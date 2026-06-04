@@ -32,3 +32,9 @@ Quando avrai il dominio definitivo su Cloudflare, sostituisci `https://www.later
 Poi vai su **Google Search Console**, aggiungi il sito e invia la `sitemap.xml`: serve a far indicizzare la pagina più in fretta.
 
 Già incluso per la SEO: title e meta description, dati strutturati JSON-LD (VacationRental), Open Graph + Twitter card con immagine, meta geografici, robots.txt e sitemap.xml.
+
+## Prenotazione live (date bloccate in tempo reale)
+Per far sì che il cliente prenoti e le date si blocchino subito per tutti (anti-sovrapposizione),
+segui la guida **APPS_SCRIPT.md** (Foglio Google + Apps Script, gratis). Poi incolla l'URL
+del Web App nella variabile `APPS_SCRIPT_URL` dentro `index.html`.
+Finché `APPS_SCRIPT_URL` è vuoto, il modulo invia solo un'email (FormSubmit) senza bloccare le date.
