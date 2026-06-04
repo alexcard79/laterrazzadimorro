@@ -164,8 +164,8 @@
   .video-phone video { width: 100%; height: 100%; object-fit: cover; display: block; }
   .video-ph-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; background: linear-gradient(160deg, #5F7256, #2B3026); color: rgba(255,255,255,0.7); font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.05em; padding: 2rem; text-align: center; }
   .video-ph-fallback svg { width: 46px; height: 46px; stroke: rgba(255,255,255,0.6); fill: none; stroke-width: 1.3; }
-  .video-wrap { max-width: 920px; margin: 0 auto; }
-  .video-container { position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 8px; overflow: hidden; box-shadow: 0 24px 70px rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.08); background: #000; }
+  .video-wrap { max-width: 380px; margin: 0 auto; }
+  .video-container { position: relative; width: 100%; padding-bottom: 177.78%; border-radius: 18px; overflow: hidden; box-shadow: 0 24px 70px rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.08); background: #000; }
   .video-container iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
   .video-poster { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; cursor: pointer; background-size: cover; background-position: center 42%; display: flex; align-items: center; justify-content: center; }
   .video-poster::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(40,29,20,0.5), rgba(40,29,20,0.18)); transition: background 0.4s; }
@@ -438,7 +438,7 @@
     <p class="reveal reveal-d1">Un breve giro tra gli ambienti, il terrazzo e la vista sulle colline.</p>
     <div class="video-wrap reveal reveal-d2">
       <div class="video-container" id="videoBox">
-        <button class="video-poster" id="videoPlay" type="button" aria-label="Riproduci il video" style="background-image:url('foto4.jpg')">
+        <button class="video-poster" id="videoPlay" type="button" aria-label="Riproduci il video" style="background-image:url('foto10.jpg')">
           <span class="video-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
         </button>
       </div>
@@ -644,7 +644,7 @@ document.querySelectorAll('.m-link').forEach(a => a.addEventListener('click', ()
 }));
 
 /* VIDEO — embed YouTube "pulito": parte solo al click, modalità privacy, niente video di altri canali */
-const YT_ID = 'METTI_QUI_ID_VIDEO';   // <-- sostituisci con l'ID del tuo video YouTube (la parte dopo v= o youtu.be/)
+const YT_ID = 'qWsTOkMDZKw';   // Short YouTube
 const videoPlay = document.getElementById('videoPlay');
 if (videoPlay) videoPlay.addEventListener('click', () => {
   if (!YT_ID || YT_ID === 'METTI_QUI_ID_VIDEO') { alert('Video in arrivo: inserisci l’ID del video YouTube nel codice (variabile YT_ID).'); return; }
