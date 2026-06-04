@@ -22,3 +22,13 @@ Apri `index.html` e sostituisci:
 - `logo.png`, `logo-light.png` — logo (versione marrone e versione chiara)
 - `favicon.svg` — icona del browser
 - `og-image.jpg` — anteprima per condivisioni su WhatsApp/Facebook
+
+## SEO — da fare dopo la pubblicazione
+Quando avrai il dominio definitivo su Cloudflare, sostituisci `https://www.laterrazzadimorro.it` con il tuo dominio in 3 punti:
+- `index.html` → riga `<link rel="canonical" ...>`
+- `sitemap.xml` → tag `<loc>`
+- `robots.txt` → riga `Sitemap:`
+
+Poi vai su **Google Search Console**, aggiungi il sito e invia la `sitemap.xml`: serve a far indicizzare la pagina più in fretta.
+
+Già incluso per la SEO: title e meta description, dati strutturati JSON-LD (VacationRental), Open Graph + Twitter card con immagine, meta geografici, robots.txt e sitemap.xml.
