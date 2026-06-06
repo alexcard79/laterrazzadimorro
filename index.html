@@ -503,11 +503,12 @@
       <input type="hidden" name="Notti" id="campoNotti">
       <input type="hidden" name="Prezzo settimana" id="campoPrezzo">
       <div class="form-group"><label for="nome">Nome</label><input type="text" id="nome" name="Nome" required placeholder="Il tuo nome"></div>
+      <div class="form-group"><label for="cognome">Cognome</label><input type="text" id="cognome" name="Cognome" required placeholder="Il tuo cognome"></div>
       <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="Email" required placeholder="nome@email.it"></div>
       <div class="form-group"><label for="telefono">Telefono</label><input type="tel" id="telefono" name="Telefono" required placeholder="+39 …"></div>
-      <div class="form-group"><label for="ospiti">Ospiti</label><select id="ospiti" name="Ospiti" required><option value="" disabled selected>Seleziona</option><option value="1">1 ospite</option><option value="2">2 ospiti</option></select></div>
       <div class="form-group"><label for="arrivo">Data arrivo</label><input type="date" id="arrivo" name="Data arrivo" required readonly></div>
       <div class="form-group"><label for="partenza">Data partenza</label><input type="date" id="partenza" name="Data partenza" required readonly></div>
+      <div class="form-group"><label for="ospiti">Ospiti</label><select id="ospiti" name="Ospiti" required><option value="" disabled selected>Seleziona</option><option value="1">1 ospite</option><option value="2">2 ospiti</option></select></div>
       <div class="form-group full"><label for="messaggio">Messaggio</label><textarea id="messaggio" name="Messaggio" placeholder="Esigenze particolari, domande…"></textarea></div>
       <button type="submit" class="form-submit">Invia Richiesta <svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg></button>
       <p class="form-privacy">Inviando il modulo accetti il trattamento dei dati secondo la <a href="privacy.html">Privacy Policy</a>.</p>
@@ -836,7 +837,7 @@ function showBookingMsg(ok, text){
     try{
       const body=new URLSearchParams({
         action:'book',
-        nome:form.Nome.value, email:form.Email.value, telefono:form.Telefono.value||'',
+        nome:(form.Nome.value+' '+form.Cognome.value).trim(), email:form.Email.value, telefono:form.Telefono.value||'',
         ospiti:form.Ospiti.value||'', checkin:calSelection.start, checkout:calSelection.end,
         notti:String(nights), prezzo:String(weekTotal(calSelection.start))+' € (7 notti)', messaggio:form.Messaggio.value||''
       });
