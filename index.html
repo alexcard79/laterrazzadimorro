@@ -235,8 +235,10 @@
   .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
   .form-group.full { grid-column: 1 / -1; }
   .form-group label { font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
-  .form-group input, .form-group textarea { font-family: var(--sans); font-size: 0.95rem; font-weight: 300; color: var(--text); background: var(--white); border: 1px solid rgba(176,112,62,0.25); border-radius: 3px; padding: 0.8rem 1rem; transition: border-color 0.3s, box-shadow 0.3s; width: 100%; }
-  .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(176,112,62,0.12); }
+  .form-group input, .form-group textarea, .form-group select { font-family: var(--sans); font-size: 0.95rem; font-weight: 300; color: var(--text); background: var(--white); border: 1px solid rgba(176,112,62,0.25); border-radius: 3px; padding: 0.8rem 1rem; transition: border-color 0.3s, box-shadow 0.3s; width: 100%; }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(176,112,62,0.12); }
+  .form-group select { appearance: none; -webkit-appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B0703E' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.9rem center; background-size: 16px; padding-right: 2.4rem; }
+  .form-group input[readonly] { cursor: default; color: var(--text); }
   .form-group textarea { resize: vertical; min-height: 110px; }
   .form-submit { grid-column: 1 / -1; display: inline-flex; align-items: center; justify-content: center; gap: 0.7rem; font-family: var(--sans); font-size: 0.76rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); background: var(--accent); border: none; padding: 1.05rem 2rem; border-radius: 4px; cursor: pointer; transition: all 0.4s cubic-bezier(0.22,1,0.36,1); }
   .form-submit:hover { background: var(--sage-deep); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(91,62,34,0.3); }
@@ -502,10 +504,10 @@
       <input type="hidden" name="Prezzo settimana" id="campoPrezzo">
       <div class="form-group"><label for="nome">Nome</label><input type="text" id="nome" name="Nome" required placeholder="Il tuo nome"></div>
       <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="Email" required placeholder="nome@email.it"></div>
-      <div class="form-group"><label for="telefono">Telefono</label><input type="tel" id="telefono" name="Telefono" placeholder="+39 …"></div>
-      <div class="form-group"><label for="ospiti">Ospiti</label><input type="number" id="ospiti" name="Ospiti" min="1" max="6" placeholder="es. 2"></div>
-      <div class="form-group"><label for="arrivo">Data arrivo</label><input type="date" id="arrivo" name="Data arrivo"></div>
-      <div class="form-group"><label for="partenza">Data partenza</label><input type="date" id="partenza" name="Data partenza"></div>
+      <div class="form-group"><label for="telefono">Telefono</label><input type="tel" id="telefono" name="Telefono" required placeholder="+39 …"></div>
+      <div class="form-group"><label for="ospiti">Ospiti</label><select id="ospiti" name="Ospiti" required><option value="" disabled selected>Seleziona</option><option value="1">1 ospite</option><option value="2">2 ospiti</option></select></div>
+      <div class="form-group"><label for="arrivo">Data arrivo</label><input type="date" id="arrivo" name="Data arrivo" required readonly></div>
+      <div class="form-group"><label for="partenza">Data partenza</label><input type="date" id="partenza" name="Data partenza" required readonly></div>
       <div class="form-group full"><label for="messaggio">Messaggio</label><textarea id="messaggio" name="Messaggio" placeholder="Esigenze particolari, domande…"></textarea></div>
       <button type="submit" class="form-submit">Invia Richiesta <svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg></button>
       <p class="form-privacy">Inviando il modulo accetti il trattamento dei dati secondo la <a href="privacy.html">Privacy Policy</a>.</p>
